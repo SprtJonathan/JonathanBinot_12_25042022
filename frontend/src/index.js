@@ -1,18 +1,18 @@
 import React from "react";
-import rd3 from 'react-d3-library';
+import rd3 from "react-d3-library";
 import ReactDOM from "react-dom/client";
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import "./styles/index.css";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Header from "./components/Header/Header";
+import Aside from "./components/Aside/Aside";
+import "./pages/index.css";
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Header />
-    <Sidebar />
-    <Home />
+    <Aside />
+    <Dashboard />
   </React.StrictMode>
 );
 
