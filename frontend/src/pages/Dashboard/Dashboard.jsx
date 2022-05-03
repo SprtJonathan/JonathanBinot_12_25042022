@@ -1,5 +1,5 @@
 import "./Dashboard.css"; // Profile page style
-import mock from "../../assets/mock.json"; // This JSON file mocks a user profile
+import mock from "../../assets/mock"; // This JSON file mocks a user profile
 
 import Card from "../../components/Card/Card";
 
@@ -8,9 +8,12 @@ import protIcon from "../../assets/img/units/proteins.svg";
 import glucIcon from "../../assets/img/units/glucids.svg";
 import lipIcon from "../../assets/img/units/lipids.svg";
 
-function Dashboard() {
-  let mockedUser = mock[0].user; // This has to be taken from the api via the /user/:id route
+import TestChart from "../../components/Charts/TestChart";
 
+function Dashboard() {
+  console.log(mock.USER_INFOS);
+  let mockedUser = mock.USER_INFOS; // This has to be taken from the api via the /user/:id route
+  //Daily Activity Chart
   return (
     <div>
       <section>
@@ -24,11 +27,13 @@ function Dashboard() {
       </section>
       <section className="stats">
         <div className="charts-section">
-          <div className="big-chart">Big Bar Chart</div>
+          <div className="big-chart">
+            <TestChart width="835" height="420"/>
+          </div>
           <div className="small-charts">
-            <div className="small-chart-block">Small Chart 1</div>
+            <div className="small-chart-block">Average session time</div>
             <div className="small-chart-block">Radar Chart 2</div>
-            <div className="small-chart-block">Round Chart 3</div>
+            <div className="small-chart-block">Goal score</div>
           </div>
         </div>
         <div className="cards-section">
@@ -36,7 +41,7 @@ function Dashboard() {
             icon={calIcon}
             color="255, 0, 0"
             data={mockedUser.keyData.calorieCount}
-            unit="kCal"
+            unit="Cal"
             type="Calories"
           />
           <Card
