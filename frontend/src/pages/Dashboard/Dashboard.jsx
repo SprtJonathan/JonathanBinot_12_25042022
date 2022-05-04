@@ -8,11 +8,13 @@ import protIcon from "../../assets/img/units/proteins.svg";
 import glucIcon from "../../assets/img/units/glucids.svg";
 import lipIcon from "../../assets/img/units/lipids.svg";
 
-import TestChart from "../../components/Charts/TestChart";
+import BarChart from "../../components/Charts/BarChart";
+import LineChart from "../../components/Charts/LineChart";
+import RadarChart from "../../components/Charts/RadarChart";
+import RadialBarChart from "../../components/Charts/RadialBarChart";
 
 function Dashboard() {
-  console.log(mock.USER_INFOS);
-  let mockedUser = mock.USER_INFOS; // This has to be taken from the api via the /user/:id route
+  let mockedUser = mock.USER_MAIN_DATA[0]; // This has to be taken from the api via the /user/:id route
   //Daily Activity Chart
   return (
     <div>
@@ -28,12 +30,18 @@ function Dashboard() {
       <section className="stats">
         <div className="charts-section">
           <div className="big-chart">
-            <TestChart width="835" height="420"/>
+            <BarChart data={mock.USER_ACTIVITY[0].sessions} />
           </div>
           <div className="small-charts">
-            <div className="small-chart-block">Average session time</div>
-            <div className="small-chart-block">Radar Chart 2</div>
-            <div className="small-chart-block">Goal score</div>
+            <div className="small-chart-block">
+              <LineChart data={mock.USER_AVERAGE_SESSIONS[0].sessions} />
+            </div>
+            <div className="small-chart-block">
+              <RadarChart data={mock.USER_PERFORMANCE[0]} />
+            </div>
+            <div className="small-chart-block">
+              <RadialBarChart value={mock.USER_MAIN_DATA[0].todayScore} />
+            </div>
           </div>
         </div>
         <div className="cards-section">
