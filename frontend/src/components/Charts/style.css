@@ -1,0 +1,11 @@
+.pie-label-top {
+  font-size: 26px;
+  line-height: 26px;
+  /* or 100% */
+
+  text-align: center;
+
+  color: #282d30;
+}
+.pie-label {
+}

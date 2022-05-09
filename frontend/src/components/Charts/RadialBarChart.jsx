@@ -1,4 +1,45 @@
-import {
+import { PieChart, Pie, Tooltip, Label, ResponsiveContainer } from "recharts";
+import "./style.css"
+
+function renderRadialBarChart(score, fillColor) {
+  const scoreValue = score.score * 100;
+  const percentageLeft = 100 - scoreValue;
+  const data = [
+    {
+      name: "score",
+      value: scoreValue,
+    },
+    {
+      name: "left",
+      value: percentageLeft,
+    },
+  ];
+  return (
+    <ResponsiveContainer width="100%" height="100%">
+      <PieChart>
+        <Pie
+          data={data}
+          innerRadius={60}
+          outerRadius={70}
+          fill="#FF0000"
+          paddingAngle={2}
+        >
+          <Label
+            value={`${scoreValue}%`}
+            position="centerBottom"
+            className="card-data"
+            fontSize="27px"
+          />
+          <Label value="de votre objectif" position="centerTop" className="card-type" />
+        </Pie>
+        <Tooltip />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+}
+export default renderRadialBarChart;
+
+/*import {
   ResponsiveContainer,
   RadialBarChart,
   RadialBar,
@@ -13,7 +54,6 @@ function renderRadialBarChart({ value }) {
       fill: "#FF0000",
     },
   ];
-  console.log(data);
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadialBarChart
@@ -46,3 +86,4 @@ function renderRadialBarChart({ value }) {
 }
 
 export default renderRadialBarChart;
+*/

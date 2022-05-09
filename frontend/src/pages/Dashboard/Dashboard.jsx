@@ -1,27 +1,31 @@
 import "./Dashboard.css"; // Profile page style
 import mock from "../../assets/mock"; // This JSON file mocks a user profile
 
-import Card from "../../components/Card/Card";
+import Card from "../../components/Card/Card"; // The Card component used to create the cards showing user stats
 
-import calIcon from "../../assets/img/units/calories.svg";
-import protIcon from "../../assets/img/units/proteins.svg";
-import glucIcon from "../../assets/img/units/glucids.svg";
-import lipIcon from "../../assets/img/units/lipids.svg";
+import calIcon from "../../assets/img/units/calories.svg"; // Calories Icon
+import protIcon from "../../assets/img/units/proteins.svg"; // Proteine Icon
+import glucIcon from "../../assets/img/units/glucids.svg"; // Glucids Icon
+import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
 
-import BarChart from "../../components/Charts/BarChart";
-import LineChart from "../../components/Charts/LineChart";
-import RadarChart from "../../components/Charts/RadarChart";
-import RadialBarChart from "../../components/Charts/RadialBarChart";
+import BarChart from "../../components/Charts/BarChart"; // Displays a bar chart with data values passed as props
+import LineChart from "../../components/Charts/LineChart"; // Displays a line chart with data values passed as props
+import RadarChart from "../../components/Charts/RadarChart"; // Displays a radar chart with data values passed as props
+import RadialBarChart from "../../components/Charts/RadialBarChart"; // Displays circle progress bar with the percentage value passed as prop
 
 function Dashboard() {
-  let mockedUser = mock.USER_MAIN_DATA[0]; // This has to be taken from the api via the /user/:id route
+  // Main user page
+  let userData = mock.USER_MAIN_DATA[0];
+  let userActivity = mock.USER_ACTIVITY[0];
+  let userAvgSessions = mock.USER_AVERAGE_SESSIONS[0];
+  let userPerformances = mock.USER_PERFORMANCE[0]; // This has to be taken from the api via the /user/:id route
   //Daily Activity Chart
   return (
     <div>
       <section>
         <h1 className="greet-text">
           Bonjour{" "}
-          <span className="username">{mockedUser.userInfos.firstName}</span>
+          <span className="username">{userData.userInfos.firstName}</span>
         </h1>
         <p className="status">
           Félicitations ! Vous avez explosé vos objectifs hier 👏
@@ -30,17 +34,17 @@ function Dashboard() {
       <section className="stats">
         <div className="charts-section">
           <div className="big-chart">
-            <BarChart data={mock.USER_ACTIVITY[0].sessions} />
+            <BarChart data={userActivity.sessions} />
           </div>
           <div className="small-charts">
-            <div className="small-chart-block">
-              <LineChart data={mock.USER_AVERAGE_SESSIONS[0].sessions} />
+            <div className="line-chart-block small-chart-block">
+              <LineChart data={userAvgSessions.sessions} />
             </div>
-            <div className="small-chart-block">
-              <RadarChart data={mock.USER_PERFORMANCE[0]} />
+            <div className="radar-chart-block small-chart-block">
+              <RadarChart data={userPerformances} />
             </div>
-            <div className="small-chart-block">
-              <RadialBarChart value={mock.USER_MAIN_DATA[0].todayScore} />
+            <div className="radial-chart-block small-chart-block">
+              <RadialBarChart score={userData.todayScore} fillColor="#FF0000" />
             </div>
           </div>
         </div>
@@ -48,28 +52,28 @@ function Dashboard() {
           <Card
             icon={calIcon}
             color="255, 0, 0"
-            data={mockedUser.keyData.calorieCount}
+            data={userData.keyData.calorieCount}
             unit="Cal"
             type="Calories"
           />
           <Card
             icon={protIcon}
             color="74, 184, 255"
-            data={mockedUser.keyData.proteinCount}
+            data={userData.keyData.proteinCount}
             unit="g"
             type="Proteines"
           />
           <Card
             icon={glucIcon}
             color="249, 206, 35"
-            data={mockedUser.keyData.carbohydrateCount}
+            data={userData.keyData.carbohydrateCount}
             unit="g"
             type="Glucides"
           />
           <Card
             icon={lipIcon}
             color="253, 81, 129"
-            data={mockedUser.keyData.lipidCount}
+            data={userData.keyData.lipidCount}
             unit="g"
             type="Lipides"
           />

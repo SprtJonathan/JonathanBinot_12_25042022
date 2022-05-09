@@ -4,7 +4,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   Radar,
-  Legend,
 } from "recharts";
 
 function renderRadarChart({ data }) {
