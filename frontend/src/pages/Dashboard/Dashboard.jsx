@@ -11,7 +11,7 @@ import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
 import BarChart from "../../components/Charts/BarChart"; // Displays a bar chart with data values passed as props
 import LineChart from "../../components/Charts/LineChart"; // Displays a line chart with data values passed as props
 import RadarChart from "../../components/Charts/RadarChart"; // Displays a radar chart with data values passed as props
-import RadialBarChart from "../../components/Charts/RadialBarChart"; // Displays circle progress bar with the percentage value passed as prop
+import PieChart from "../../components/Charts/PieChart"; // Displays circle progress bar with the percentage value passed as prop
 
 function Dashboard() {
   // Main user page
@@ -41,10 +41,10 @@ function Dashboard() {
               <LineChart data={userAvgSessions.sessions} />
             </div>
             <div className="radar-chart-block small-chart-block">
-              <RadarChart data={userPerformances} />
+              <RadarChart performances={userPerformances} />
             </div>
             <div className="radial-chart-block small-chart-block">
-              <RadialBarChart score={userData.todayScore} fillColor="#FF0000" />
+              <PieChart score={userData.todayScore} />
             </div>
           </div>
         </div>

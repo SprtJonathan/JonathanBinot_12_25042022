@@ -13,9 +13,8 @@ function renderBarChart({ data }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} label="test">
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="2 2" />
         <XAxis dataKey="day" />
-        <YAxis />
         <Tooltip />
         <Legend />
         <Bar
