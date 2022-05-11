@@ -34,16 +34,19 @@ function Dashboard() {
       <section className="stats">
         <div className="charts-section">
           <div className="big-chart">
+            <span className="sessions-title">Activité quotdienne</span>
             <BarChart data={userActivity.sessions} />
           </div>
           <div className="small-charts">
             <div className="line-chart-block small-chart-block">
+              <p className="line-chart-title">Durée moyenne des sessions</p>
               <LineChart data={userAvgSessions.sessions} />
             </div>
             <div className="radar-chart-block small-chart-block">
               <RadarChart performances={userPerformances} />
             </div>
             <div className="radial-chart-block small-chart-block">
+              <span className="radial-chart-title">Score</span>
               <PieChart score={userData.todayScore} />
             </div>
           </div>

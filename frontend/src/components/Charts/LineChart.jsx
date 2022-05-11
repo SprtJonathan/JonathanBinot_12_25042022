@@ -2,7 +2,6 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
-  Label,
   XAxis,
   Tooltip,
 } from "recharts";
@@ -17,7 +16,6 @@ function renderLineChart({ data }) {
       value: data[i].sessionLength,
     });
   }
-  console.log(avgSessions);
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
@@ -31,12 +29,27 @@ function renderLineChart({ data }) {
           axisLine={false}
           tickLine={false}
           stroke="#FFFFFF"
-          label={{
-            value: "Durée moyenne des sessions",
-            position: "insideLeft",    dy: -200}}
         />
-        <Tooltip />
-        <Line type="monotone" dataKey="value" stroke="#FFFFFF" dot={false} />
+        <Tooltip
+          itemStyle={{
+            color: "black",
+            stroke: "transparent",
+            fontSize: 8,
+            fontWeight: 500,
+          }}
+          formatter={(value, name, unit) => [value, unit]}
+          labelStyle={{ display: "none" }}
+          cursor={{
+            strokeOpacity: 0.1, 
+          }}
+        />
+        <Line
+          type="monotone"
+          dataKey="value"
+          stroke="#FFFFFF"
+          dot={false}
+          unit=" min"
+        />
       </LineChart>
     </ResponsiveContainer>
   );
