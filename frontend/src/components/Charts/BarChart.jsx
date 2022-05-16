@@ -13,6 +13,7 @@ function renderBarChart({ data }) {
   const userData = [];
 
   // In this loop, we push the data taken from the prop into the newly created array to better match the data of the mockup
+ /* Creating a new array with the data from the prop. */
   for (let i = 0; i < data.length; i++) {
     userData.push({
       index: i + 1,
@@ -20,6 +21,7 @@ function renderBarChart({ data }) {
       calories: data[i].calories,
     });
   }
+  /* Getting the min and max values of the data to set the domain of the Y axis. */
   const kgArray = data.map((kilogram) => kilogram.kilogram);
   const minKg = Math.min(...kgArray);
   const maxKg = Math.max(...kgArray);
@@ -27,6 +29,10 @@ function renderBarChart({ data }) {
   const calArray = data.map((calories) => calories.calories);
   const minCal = Math.min(...calArray);
   const maxCal = Math.max(...calArray);
+  /**
+   * It returns a span element with the value passed to it.
+   * @returns A function that returns a span element with the value passed in.
+   */
   const legendValue = (value) => {
     return <span>{value} </span>;
   };

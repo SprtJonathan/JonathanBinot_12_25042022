@@ -7,9 +7,11 @@ import {
 } from "recharts";
 
 function renderLineChart({ data }) {
+  /* Creating an array of days of the week. */
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const avgSessions = [];
-  // In this loop, we push the data taken from the prop into the newly created array and the corresponding day name
+  
+  /* Creating an array of objects with the day of the week and the session length. */
   for (let i = 0; i < data.length; i++) {
     avgSessions.push({
       day: days[i],
