@@ -9,7 +9,10 @@ import {
   Legend,
 } from "recharts";
 
-function renderBarChart({ data }) {
+import PropTypes from "prop-types";
+
+function renderBarChart(props) {
+  const data = props.data;
   const userData = [];
 
   // In this loop, we push the data taken from the prop into the newly created array to better match the data of the mockup
@@ -113,5 +116,14 @@ function renderBarChart({ data }) {
     </ResponsiveContainer>
   );
 }
+renderBarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ).isRequired,
+};
 
 export default renderBarChart;

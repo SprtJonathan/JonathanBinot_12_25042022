@@ -1,13 +1,13 @@
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  Tooltip,
-} from "recharts";
+import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip } from "recharts";
+import PropTypes from "prop-types";
 
+<<<<<<< Updated upstream
 function renderLineChart({ data }) {
   /* Creating an array of days of the week. */
+=======
+function renderLineChart(props) {
+  const data = props.data;
+>>>>>>> Stashed changes
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const avgSessions = [];
   
@@ -42,7 +42,7 @@ function renderLineChart({ data }) {
           formatter={(value, name, unit) => [value, unit]}
           labelStyle={{ display: "none" }}
           cursor={{
-            strokeOpacity: 0.1, 
+            strokeOpacity: 0.1,
           }}
         />
         <Line
@@ -56,5 +56,13 @@ function renderLineChart({ data }) {
     </ResponsiveContainer>
   );
 }
+renderLineChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number,
+    })
+  ).isRequired,
+};
 
 export default renderLineChart;

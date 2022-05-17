@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Homepage from "./pages/Homepage/Homepage";
 import Header from "./components/Header/Header";
 import Aside from "./components/Aside/Aside";
 import "./pages/index.css";
@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <Header />
     <Aside />
-    <Dashboard />
+    <Homepage />
   </React.StrictMode>
 );
 

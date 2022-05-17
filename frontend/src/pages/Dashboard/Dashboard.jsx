@@ -1,89 +1,67 @@
+import React, { Component } from "react";
+
 import "./Dashboard.css"; // Profile page style
-import mock from "../../assets/mock"; // This JSON file mocks a user profile
 
-import Card from "../../components/Card/Card"; // The Card component used to create the cards showing user stats
+/* Importing the functions that call the API from the service.js file. */
+import fetchData from "../../api/services/service";
 
-import calIcon from "../../assets/img/units/calories.svg"; // Calories Icon
-import protIcon from "../../assets/img/units/proteins.svg"; // Proteine Icon
-import glucIcon from "../../assets/img/units/glucids.svg"; // Glucids Icon
-import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
+import Content from "../../components/Content/Content";
 
-import BarChart from "../../components/Charts/BarChart"; // Displays a bar chart with data values passed as props
-import LineChart from "../../components/Charts/LineChart"; // Displays a line chart with data values passed as props
-import RadarChart from "../../components/Charts/RadarChart"; // Displays a radar chart with data values passed as props
-import PieChart from "../../components/Charts/PieChart"; // Displays circle progress bar with the percentage value passed as prop
+class Dashboard extends Component {
+  constructor() {
+    super();
+    // state
+    this.state = {
+      userFetchedData: {},
+      userFetchedActivity: {},
+      userFetchedAvgSessions: {},
+      userFetchedPerformance: {},
+      isLoaded: false,
+    };
+  }
+  // Before component is mounted async method
+  async componentDidMount() {
+    // all Get request to receive data from endpoints backend
+    const userInfosData = await fetchData(this.props.id, "/");
+    const userActivityData = await fetchData(this.props.id, "/activity");
+    const userAvgSessionsData = await fetchData(
+      this.props.id,
+      "/average-sessions"
+    );
+    const userPerformanceData = await fetchData(this.props.id, "/performance");
+    // update state with received data
+    this.setState({
+      userFetchedData: userInfosData,
+      userFetchedActivity: userActivityData,
+      userFetchedAvgSessions: userAvgSessionsData,
+      userFetchedPerformances: userPerformanceData,
+      isLoaded: true,
+    });
+  }
 
-function Dashboard() {
-  // Main user page
-  let userData = mock.USER_MAIN_DATA[0];
-  let userActivity = mock.USER_ACTIVITY[0];
-  let userAvgSessions = mock.USER_AVERAGE_SESSIONS[0];
-  let userPerformances = mock.USER_PERFORMANCE[0]; // This has to be taken from the api via the /user/:id route
-  //Daily Activity Chart
-  return (
-    <div>
-      <section>
-        <h1 className="greet-text">
-          Bonjour{" "}
-          <span className="username">{userData.userInfos.firstName}</span>
-        </h1>
-        <p className="status">
-          Félicitations ! Vous avez explosé vos objectifs hier 👏
-        </p>
-      </section>
-      <section className="stats">
-        <div className="charts-section">
-          <div className="big-chart">
-            <span className="sessions-title">Activité quotdienne</span>
-            <BarChart data={userActivity.sessions} />
-          </div>
-          <div className="small-charts">
-            <div className="line-chart-block small-chart-block">
-              <p className="line-chart-title">Durée moyenne des sessions</p>
-              <LineChart data={userAvgSessions.sessions} />
-            </div>
-            <div className="radar-chart-block small-chart-block">
-              <RadarChart performances={userPerformances} />
-            </div>
-            <div className="radial-chart-block small-chart-block">
-              <span className="radial-chart-title">Score</span>
-              <PieChart score={userData.todayScore} />
-            </div>
-          </div>
-        </div>
-        <div className="cards-section">
-          <Card
-            icon={calIcon}
-            color="255, 0, 0"
-            data={userData.keyData.calorieCount}
-            unit="Cal"
-            type="Calories"
-          />
-          <Card
-            icon={protIcon}
-            color="74, 184, 255"
-            data={userData.keyData.proteinCount}
-            unit="g"
-            type="Proteines"
-          />
-          <Card
-            icon={glucIcon}
-            color="249, 206, 35"
-            data={userData.keyData.carbohydrateCount}
-            unit="g"
-            type="Glucides"
-          />
-          <Card
-            icon={lipIcon}
-            color="253, 81, 129"
-            data={userData.keyData.lipidCount}
-            unit="g"
-            type="Lipides"
-          />
-        </div>
-      </section>
-    </div>
-  );
+  render() {
+    const {
+      userFetchedData,
+      userFetchedActivity,
+      userFetchedAvgSessions,
+      userFetchedPerformances,
+      isLoaded,
+    } = this.state;
+
+    return (
+      // If State is updated show Container component otherwise show Loading component
+      isLoaded ? (
+        <Content
+          userData={userFetchedData}
+          userActivity={userFetchedActivity}
+          userAvgSessions={userFetchedAvgSessions}
+          userPerformances={userFetchedPerformances}
+        />
+      ) : (
+        "Chargement"
+      )
+    );
+  }
 }
 
 export default Dashboard;

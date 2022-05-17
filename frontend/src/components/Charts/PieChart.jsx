@@ -7,23 +7,15 @@ import {
   Cell,
 } from "recharts";
 import "./style.css";
+import PropTypes from "prop-types";
 
-function renderRadialBarChart(score) {
-  const scoreValue = score.score * 100;
+function renderPieChart(props) {
+  const score = props.score;
+  const scoreValue = score * 100;
   const percentageLeft = 100 - scoreValue;
-  const data = [
-    {
-      name: "score",
-      value: scoreValue,
-    },
-    {
-      name: "left",
-      value: percentageLeft,
-    },
-  ];
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <PieChart >
+      <PieChart>
         <Pie
           innerRadius={60}
           outerRadius={70}
@@ -60,4 +52,7 @@ function renderRadialBarChart(score) {
     </ResponsiveContainer>
   );
 }
-export default renderRadialBarChart;
+renderPieChart.propTypes = {
+  score: PropTypes.number,
+};
+export default renderPieChart;

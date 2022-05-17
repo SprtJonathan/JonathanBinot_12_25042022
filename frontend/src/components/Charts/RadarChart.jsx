@@ -6,7 +6,10 @@ import {
   Radar,
 } from "recharts";
 
-function renderRadarChart({ performances }) {
+import PropTypes from "prop-types";
+
+function renderRadarChart(props) {
+  const performances = props.performances;
   const { data, kind } = performances; // Splitting the two type of data used to create the chart
   let userData = []; // Initialization of the array that will serve as the data used by the chart
 
@@ -41,5 +44,13 @@ function renderRadarChart({ performances }) {
     </ResponsiveContainer>
   );
 }
+renderRadarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.number,
+    })
+  ).isRequired,
+};
 
 export default renderRadarChart;

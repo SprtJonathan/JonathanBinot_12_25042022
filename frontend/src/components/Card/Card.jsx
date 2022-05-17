@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* Importing the CSS file for the Card component. */
 import "./Card.css";
 
@@ -8,6 +9,28 @@ import "./Card.css";
  * @returns A React component.
  */
 function Card({ icon, color, data, unit, type }) {
+=======
+import PropTypes from "prop-types";
+import "./Card.css";
+
+/**
+ * Card component props
+ * @param {string} props.icon
+ * @param {string} props.color
+ * @param {number} props.data
+ * @param {string} props.unit
+ * @param {string} props.type
+ * @returns A React component
+ */
+
+function Card(props) {
+  const icon = props.icon;
+  const color = props.color;
+  const data = props.data;
+  const unit = props.unit;
+  const type = props.type;
+
+>>>>>>> Stashed changes
   return (
     <div className="card">
       <div
@@ -28,4 +51,13 @@ function Card({ icon, color, data, unit, type }) {
     </div>
   );
 }
+
+/* A way to check the props that are passed to the component. */
+Card.propTypes = {
+  icon: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  data: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
 export default Card;
