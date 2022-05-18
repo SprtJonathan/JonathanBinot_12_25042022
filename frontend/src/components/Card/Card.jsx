@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-/* Importing the CSS file for the Card component. */
-import "./Card.css";
-
-/**
- * It takes in an object with the properties icon, color, data, unit, and type, and returns a div with
- * a div inside of it, which has a div inside of it, which has an image inside of it, which has a div
- * inside of it, which has a div inside of it, which has a div inside of it.
- * @returns A React component.
- */
-function Card({ icon, color, data, unit, type }) {
-=======
 import PropTypes from "prop-types";
 import "./Card.css";
 
@@ -30,7 +18,6 @@ function Card(props) {
   const unit = props.unit;
   const type = props.type;
 
->>>>>>> Stashed changes
   return (
     <div className="card">
       <div

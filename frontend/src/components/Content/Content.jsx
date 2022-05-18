@@ -19,6 +19,8 @@ function displayContent(props) {
   let userAvgSessions = props.userAvgSessions;
   let userPerformances = props.userPerformances;
 
+  console.log(props)
+
   return (
     <div>
       <UserSummary userData={userData.userInfos.firstName} />

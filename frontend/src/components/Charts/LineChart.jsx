@@ -1,13 +1,8 @@
 import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 
-<<<<<<< Updated upstream
-function renderLineChart({ data }) {
-  /* Creating an array of days of the week. */
-=======
 function renderLineChart(props) {
   const data = props.data;
->>>>>>> Stashed changes
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const avgSessions = [];
   

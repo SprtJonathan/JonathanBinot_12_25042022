@@ -22,13 +22,13 @@ class Dashboard extends Component {
   // Before component is mounted async method
   async componentDidMount() {
     // all Get request to receive data from endpoints backend
-    const userInfosData = await fetchData(this.props.id, "/");
-    const userActivityData = await fetchData(this.props.id, "/activity");
+    const userInfosData = await fetchData(this.props.id, "");
+    const userActivityData = await fetchData(this.props.id, "activity");
     const userAvgSessionsData = await fetchData(
       this.props.id,
-      "/average-sessions"
+      "average-sessions"
     );
-    const userPerformanceData = await fetchData(this.props.id, "/performance");
+    const userPerformanceData = await fetchData(this.props.id, "performance");
     // update state with received data
     this.setState({
       userFetchedData: userInfosData,
