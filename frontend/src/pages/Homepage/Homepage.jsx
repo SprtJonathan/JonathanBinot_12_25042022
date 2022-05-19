@@ -1,12 +1,11 @@
 import Dashboard from "../Dashboard/Dashboard";
+import Error from "../../components/Error/Error";
 
 function Homepage() {
-  return (
-    <div>
-      <Dashboard id="12" />
-      <Dashboard id="18" />
-    </div>
-  );
+  const URL = window.location.href;
+  const userId = URL.split("/").pop();
+  console.log(userId);
+  return <div>{userId ? <Dashboard id={userId} /> : <Error />}</div>;
 }
 
 export default Homepage;

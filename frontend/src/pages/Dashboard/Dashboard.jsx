@@ -5,6 +5,7 @@ import "./Dashboard.css"; // Profile page style
 /* Importing the functions that call the API from the service.js file. */
 import fetchData from "../../api/services/service";
 
+import Error from "../../components/Error/Error";
 import Content from "../../components/Content/Content";
 
 class Dashboard extends Component {
@@ -58,7 +59,7 @@ class Dashboard extends Component {
           userPerformances={userFetchedPerformances}
         />
       ) : (
-        "Chargement"
+        <Error />
       )
     );
   }

@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+
+/* Importing the components from the recharts library. */
 import {
   ResponsiveContainer,
   BarChart,
@@ -9,14 +12,19 @@ import {
   Legend,
 } from "recharts";
 
-import PropTypes from "prop-types";
+
+/**
+ * Returns React Component that displays a bar chart
+ * @param { data } object
+ * @return  A React component
+ */
 
 function renderBarChart(props) {
   const data = props.data;
   const userData = [];
 
   // In this loop, we push the data taken from the prop into the newly created array to better match the data of the mockup
- /* Creating a new array with the data from the prop. */
+  /* Creating a new array with the data from the prop. */
   for (let i = 0; i < data.length; i++) {
     userData.push({
       index: i + 1,

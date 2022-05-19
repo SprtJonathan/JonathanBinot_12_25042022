@@ -45,12 +45,7 @@ function renderRadarChart(props) {
   );
 }
 renderRadarChart.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.number,
-      kind: PropTypes.number,
-    })
-  ).isRequired,
+  performances: PropTypes.object.isRequired,
 };
 
 export default renderRadarChart;

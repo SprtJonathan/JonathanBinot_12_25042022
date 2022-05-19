@@ -6,8 +6,8 @@
   text-align: center;
 
   color: #282d30;
+  position: absolute;
 }
 .pie-chart {
   background-color: white;
 }
-

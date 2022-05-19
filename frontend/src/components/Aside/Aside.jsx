@@ -1,3 +1,4 @@
+/* Importing the css file and the images. */
 import "./Aside.css";
 import Logo from "../../assets/img/logo.png";
 import Yoga from "../../assets/img/yoga.svg";
@@ -5,6 +6,10 @@ import Swim from "../../assets/img/swim.svg";
 import Bike from "../../assets/img/bike.svg";
 import Muscle from "../../assets/img/muscle.svg";
 
+/**
+ * Returns React Component that displays the sidebar of the web page
+ * @return  A React component
+ */
 function Sidebar() {
   return (
     <div className="sidebar">

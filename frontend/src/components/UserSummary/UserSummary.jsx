@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 /**
  * Card component props
  * @param {data} props.userData
- * @returns A React component
+ * @return A React component
  */
 
 function userSummary(props) {

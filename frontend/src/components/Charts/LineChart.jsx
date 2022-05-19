@@ -1,6 +1,12 @@
+/* Importing the components from the recharts library. */
 import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Returns React Component that displays a line chart
+ * @param { data } object
+ * @return  A React component
+ */
 function renderLineChart(props) {
   const data = props.data;
   const days = ["L", "M", "M", "J", "V", "S", "D"];
