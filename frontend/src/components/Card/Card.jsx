@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./Card.css";
 
 /**
- * Card component props
+ * Returns a react component that displays a card with data
  * @param {string} props.icon
  * @param {string} props.color
  * @param {number} props.data

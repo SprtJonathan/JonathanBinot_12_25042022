@@ -15,7 +15,7 @@ import {
 
 /**
  * Returns React Component that displays a bar chart
- * @param { data } object
+ * @param { object } props.data
  * @return  A React component
  */
 

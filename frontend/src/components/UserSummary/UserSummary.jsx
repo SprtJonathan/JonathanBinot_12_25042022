@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 /**
- * Card component props
+ * Returns a React component that displays the greet message of the dashboard with the user name
  * @param {data} props.userData
  * @return A React component
  */

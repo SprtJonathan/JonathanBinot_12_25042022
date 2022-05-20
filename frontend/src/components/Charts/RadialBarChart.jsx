@@ -7,7 +7,8 @@ import {
 } from "recharts";
 
 import PropTypes from "prop-types";
-import "./test.css";
+import "./RadialBarChart.css";
+
 /**
  * Returns React Component that displays a radial bar chart
  * @param { number } score

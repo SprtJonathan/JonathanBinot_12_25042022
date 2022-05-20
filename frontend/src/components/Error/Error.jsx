@@ -1,3 +1,7 @@
+/**
+ * Returns a React component that displays an error message if the user ID is invalid 
+ * @returns A React component.
+ */
 function invalidUser() {
   return (
     <div>

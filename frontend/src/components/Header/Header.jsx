@@ -1,5 +1,9 @@
 import "./Header.css";
 
+/**
+ * Returns React Component that displays the header of the web page
+ * @return  A React component
+ */
 function Header() {
   return (
     <div className="header">

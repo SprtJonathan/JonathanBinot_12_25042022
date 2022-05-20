@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 /**
  * Returns React Component that displays a line chart
- * @param { data } object
+ * @param { number } props.data.day
+ * @param { number } props.data.sessionLength
  * @return  A React component
  */
 function renderLineChart(props) {
