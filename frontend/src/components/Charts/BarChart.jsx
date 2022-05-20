@@ -12,6 +12,7 @@ import {
   Legend,
 } from "recharts";
 
+import "./BarChart.css";
 
 /**
  * Returns React Component that displays a bar chart
@@ -45,7 +46,17 @@ function renderBarChart(props) {
    * @returns A function that returns a span element with the value passed in.
    */
   const legendValue = (value) => {
-    return <span>{value} </span>;
+    return (
+      <span
+        style={{
+          color: "#74798C",
+          fontSize: "14px",
+          lineHeight: "24px",
+        }}
+      >
+        {value}{" "}
+      </span>
+    );
   };
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -82,8 +93,10 @@ function renderBarChart(props) {
             backgroundColor: "#FF0000",
             fontSize: 7,
             fontWeight: "500",
+            border: "0 transparent",
+            padding: "10px",
           }}
-          itemStyle={{ color: "#FFFFFF" }}
+          itemStyle={{ color: "#FFFFFF", fontSize: "7px", lineHeight: "24px" }}
           formatter={(value, name, unit) => [value, unit]}
           labelStyle={{ display: "none" }}
           cursor={{
@@ -100,7 +113,6 @@ function renderBarChart(props) {
           iconSize={8}
           height={47}
           formatter={legendValue}
-          wrapperStyle={{ color: "#74798C", fontSize: "14" }}
         />
         <Bar
           yAxisId={0} // This attribute is used to assign the bar to the previously assigned Y Axis (here the Kg Ybar)

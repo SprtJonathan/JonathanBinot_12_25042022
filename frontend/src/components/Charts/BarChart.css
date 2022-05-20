@@ -1,0 +1,9 @@
+.barchart-title {
+  position: absolute;
+  padding: 0 40rem 17rem 0;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height, or 160% */
+
+  color: #20253a;
+}

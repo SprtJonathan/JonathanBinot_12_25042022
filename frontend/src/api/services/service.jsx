@@ -12,7 +12,9 @@ const fetchData = async (id, urlParam) => {
   // convert data to json format
   const jsonResponse = await getRequest.json();
 
-  if (jsonResponse === "can not get user") window.location.replace("/");
+  if (jsonResponse === "can not get user") {
+    return false;
+  }
 
   // Utilisation d'un objet key value pour remplacer le switch
   /* A key value object. */

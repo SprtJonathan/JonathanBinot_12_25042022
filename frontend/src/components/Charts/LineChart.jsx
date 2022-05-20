@@ -2,6 +2,8 @@
 import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 
+import "./LineChart.css";
+
 /**
  * Returns React Component that displays a line chart
  * @param { number } props.data.day
@@ -12,7 +14,7 @@ function renderLineChart(props) {
   const data = props.data;
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const avgSessions = [];
-  
+
   /* Creating an array of objects with the day of the week and the session length. */
   for (let i = 0; i < data.length; i++) {
     avgSessions.push({
@@ -33,6 +35,12 @@ function renderLineChart(props) {
           axisLine={false}
           tickLine={false}
           stroke="#FFFFFF"
+          className="days"
+          style={{
+            opacity: 0.5,
+            fontSize: "12px",
+            lineHeight: "24px",
+          }}
         />
         <Tooltip
           itemStyle={{
@@ -45,6 +53,10 @@ function renderLineChart(props) {
           labelStyle={{ display: "none" }}
           cursor={{
             strokeOpacity: 0.1,
+          }}
+          contentStyle={{
+            border: "0 transparent",
+            padding: "5px 10px",
           }}
         />
         <Line

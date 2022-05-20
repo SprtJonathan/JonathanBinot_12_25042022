@@ -8,7 +8,7 @@ import RadarChart from "../../components/Charts/RadarChart"; // Displays a radar
 import RadialBarChart from "../Charts/RadialBarChart"; // Displays circle progress bar with the percentage value passed as prop
 import Card from "../../components/Card/Card"; // The Card component used to create the cards showing user stats
 
-//import mock from "../../assets/mock"; // This JSON file mocks a user profile
+import "./Content.css"; // Profile page style
 
 import calIcon from "../../assets/img/units/calories.svg"; // Calories Icon
 import protIcon from "../../assets/img/units/proteins.svg"; // Proteine Icon
@@ -24,10 +24,10 @@ import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
  * @return  A React component
  */
 function displayContent(props) {
-  let userData = props.userData; //mock.USER_MAIN_DATA[0] // The commented code is for the mocked data
-  let userActivity = props.userActivity; //mock.USER_ACTIVITY[0]
-  let userAvgSessions = props.userAvgSessions; //mock.USER_AVERAGE_SESSIONS[0]
-  let userPerformances = props.userPerformances; //mock.USER_PERFORMANCES[0]
+  let userData = props.userData; // The commented code is for the mocked data
+  let userActivity = props.userActivity;
+  let userAvgSessions = props.userAvgSessions;
+  let userPerformances = props.userPerformances;
 
   //console.log(props)
 
@@ -37,7 +37,7 @@ function displayContent(props) {
       <section className="stats">
         <div className="charts-section">
           <div className="big-chart">
-            <span className="sessions-title">Activité quotdienne</span>
+            <span className="barchart-title">Activité quotdienne</span>
             <BarChart data={userActivity.sessions} />
           </div>
           <div className="small-charts">
