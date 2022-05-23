@@ -16,7 +16,7 @@ import "./BarChart.css";
 
 /**
  * Returns React Component that displays a bar chart
- * @param { object } props.data
+ * @param { Object } props An object that contains an array of objects
  * @return  A React component
  */
 
@@ -54,7 +54,7 @@ function renderBarChart(props) {
           lineHeight: "24px",
         }}
       >
-        {value}{" "}
+        {value}
       </span>
     );
   };

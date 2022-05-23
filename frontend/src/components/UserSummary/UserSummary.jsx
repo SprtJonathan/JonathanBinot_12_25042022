@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 /**
  * Returns a React component that displays the greet message of the dashboard with the user name
  * @param {data} props.userData
+ * @param {Object} props An object that contains a string representing the user name
  * @return A React component
  */
 

@@ -11,7 +11,7 @@ import "./RadialBarChart.css";
 
 /**
  * Returns React Component that displays a radial bar chart
- * @param { number } score
+ * @param { Number } score
  * @return  A React component
  */
 

@@ -11,8 +11,9 @@ import "./RadarChart.css";
 
 /**
  * Returns React Component that displays a radar chart
- * @param { array } props.performances.data
- * @param { object } props.performances.kind
+//  * @param { array } props.performances.data
+//  * @param { object } props.performances.kind
+ * @param { Object } props An object that contains an array of objects
  * @return  A React component
  */
 function renderRadarChart(props) {

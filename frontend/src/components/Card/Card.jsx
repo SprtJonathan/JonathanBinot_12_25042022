@@ -3,11 +3,12 @@ import "./Card.css";
 
 /**
  * Returns a react component that displays a card with data
- * @param {string} props.icon
- * @param {string} props.color
- * @param {number} props.data
- * @param {string} props.unit
- * @param {string} props.type
+//  * @param {string} props.icon
+//  * @param {string} props.color
+//  * @param {number} props.data
+//  * @param {string} props.unit
+//  * @param {string} props.type
+ * @param {Object} props An Object that contains multiple elements
  * @returns A React component
  */
 

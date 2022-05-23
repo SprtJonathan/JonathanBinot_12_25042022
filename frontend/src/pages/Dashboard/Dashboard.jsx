@@ -18,6 +18,7 @@ to the Content component. */
 function Dashboard(props) {
   const userId = props.id;
 
+  /* Setting the state of the component. */
   const [userFetchedData, setUserFetchedData] = useState(null);
   const [userFetchedActivity, setUserFetchedActivity] = useState(null);
   const [userFetchedAvgSessions, setUserFetchedAvgSessions] = useState(null);
@@ -26,6 +27,8 @@ function Dashboard(props) {
   /* A boolean that is used to switch between the mocked data and the real data. */
   const useMockedData = false;
 
+  /* A React hook that is used to fetch data from an API. The data is then passed to the Content
+  component. */
   useEffect(() => {
     if (useMockedData) {
       setUserFetchedData(mock.USER_MAIN_DATA[0]); // The commented code is for the mocked data

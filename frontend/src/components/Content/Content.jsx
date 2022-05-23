@@ -17,10 +17,11 @@ import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
 
 /**
  * Returns React Component that displays the content of the profile page
- * @param { Object } userData
- * @param { Object } userActivity
- * @param { Object } userAvgSessions
- * @param { Object } userPerformances
+//  * @param { Object } userData
+//  * @param { Object } userActivity
+//  * @param { Object } userAvgSessions
+//  * @param { Object } userPerformances
+ * @param { Object } props An array of objects
  * @return  A React component
  */
 function displayContent(props) {

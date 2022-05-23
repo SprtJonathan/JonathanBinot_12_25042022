@@ -6,14 +6,17 @@ import "./LineChart.css";
 
 /**
  * Returns React Component that displays a line chart
- * @param { number } props.data.day
- * @param { number } props.data.sessionLength
+//  * @param { number } props.data.day
+//  * @param { number } props.data.sessionLength
+ * @param { Object } props An object that contains an array of objects
  * @return  A React component
  */
 function renderLineChart(props) {
   const data = props.data;
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const avgSessions = [];
+
+  console.log(props);
 
   /* Creating an array of objects with the day of the week and the session length. */
   for (let i = 0; i < data.length; i++) {
