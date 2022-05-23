@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-/* Importing the Homepage and Header components. */
+
+/* Importing the components from the pages and components folder. */
 import Homepage from "./pages/Homepage/Homepage";
 import Header from "./components/Header/Header";
-/* Importing the Aside component. */
 import Aside from "./components/Aside/Aside";
 import "./pages/index.css";
 //import reportWebVitals from './reportWebVitals';
