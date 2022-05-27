@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 /* Importing the functions that call the API from the service.js file. */
 import fetchData from "../../api/services/service";
@@ -68,5 +69,9 @@ function Dashboard(props) {
     )
   );
 }
+
+Dashboard.propTypes = {
+  id: PropTypes.string,
+};
 
 export default Dashboard;

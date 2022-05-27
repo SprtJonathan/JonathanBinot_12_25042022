@@ -3,6 +3,8 @@ import userActivityModel from "../models/userActivity";
 import userAvgSessionsModel from "../models/userAvgSessions";
 import userPerformanceModel from "../models/userPerformance";
 
+/* Creating a variable that represents the api port. Then it is creating a variable called
+apiURL and setting it to http://localhost:3000/ */
 const apiPort = "3000";
 const apiURL = "http://localhost:" + apiPort + "/";
 

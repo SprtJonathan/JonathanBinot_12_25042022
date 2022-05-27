@@ -18,11 +18,7 @@ function Sidebar() {
         <img className="website-logo" src={Logo} alt="" />
         <ul className="sport-section">
           {sportArray.map((array, keyValue) => (
-            <a
-              key={keyValue}
-              href="/"
-              className="sport-li"
-            >
+            <a key={keyValue} href="/" className="sport-li">
               <img src={array} alt="" />
             </a>
           ))}
