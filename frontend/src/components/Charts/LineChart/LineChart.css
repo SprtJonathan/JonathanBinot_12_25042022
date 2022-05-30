@@ -6,11 +6,10 @@
 
 .line-chart-title {
   position: absolute;
-  width: 150px;
-  padding-right: 3rem;
-  padding-bottom: 10rem;
-  font-size: 15px;
-  line-height: 24px;
+  width: 125px;
+  padding-bottom: 6rem;
+  font-size: 12px;
+  line-height: 20px;
   /* or 160% */
 
   color: #ffffff;
@@ -21,4 +20,14 @@
 
 .line-chart {
   height: 90%;
+}
+
+@media (min-width: 1440px) {
+  .line-chart-title {
+    width: 150px;
+    padding-right: 3rem;
+    padding-bottom: 10rem;
+    font-size: 15px;
+    line-height: 24px;
+  }
 }

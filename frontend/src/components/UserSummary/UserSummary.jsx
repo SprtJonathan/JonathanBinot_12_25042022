@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 
 /**
  * Returns a React component that displays the greet message of the dashboard with the user name
- * @param {data} props.userData
- * @param {Object} props An object that contains a string representing the user name
+ * @param {string} userData The user's name
  * @return A React component
  */
 
@@ -20,7 +19,7 @@ function userSummary(props) {
     </section>
   );
 }
-
+// Use of propTypes to detail every props used in the component
 userSummary.propTypes = {
   userData: PropTypes.string.isRequired,
 };

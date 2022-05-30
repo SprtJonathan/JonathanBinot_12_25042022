@@ -8,7 +8,7 @@ import Error from "../../components/Error/Error"; // Importing the Error compone
 function Homepage() {
   const URL = window.location.href;
   const userId = URL.split("/").pop();
-  return <div>{userId ? <Dashboard id={userId} /> : <Error />}</div>;
+  return userId ? <Dashboard id={userId} /> : <Error />;
 }
 
 export default Homepage;

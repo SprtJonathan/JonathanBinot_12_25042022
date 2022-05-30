@@ -69,7 +69,7 @@ function Dashboard(props) {
     )
   );
 }
-
+// Use of propTypes to detail every props used in the component
 Dashboard.propTypes = {
   id: PropTypes.string,
 };

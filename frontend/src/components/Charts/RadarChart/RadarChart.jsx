@@ -42,7 +42,7 @@ function renderRadarChart(props) {
           tick={{
             fill: "#FFFFFF",
             fontWeight: 500,
-            fontSize: 12,
+            fontSize: 8,
           }}
         />
         <Radar

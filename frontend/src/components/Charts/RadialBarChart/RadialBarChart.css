@@ -10,9 +10,9 @@
 .score-title {
   position: absolute;
   top: 0rem;
-  left: 2rem;
+  left: 1rem;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 24px;
   color: #20253a;
 }
@@ -21,20 +21,20 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 160px;
-  height: 160px;
+  width: 90px;
+  height: 90px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 12px;
   color: #74798b;
   text-align: center;
 }
 .score-value {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
   color: #282d30;
 }
@@ -44,4 +44,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1440px) {
+  .score-title {
+    left: 2rem;
+    font-size: 15px;
+  }
+  .score-legend {
+    width: 160px;
+    height: 160px;
+    font-size: 15px;
+  }
+  .score-value {
+    font-size: 26px;
+  }
 }

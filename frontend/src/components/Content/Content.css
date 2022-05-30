@@ -27,34 +27,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 835px;
-  height: 320px;
   background: #fbfbfb;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
   margin: 14px;
-}
-
-.sessions-title {
+  width: 500px;
+  height: 191px;
 }
 
 .small-charts {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .small-chart-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 258px;
-  height: 263px;
   border-radius: 5px;
   margin: 14px;
+  width: 150px;
+  height: 155px;
 }
 
 .cards-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+@media (min-width: 1440px) {
+  .big-chart {
+    width: 835px;
+    height: 320px;
+  }
+  .small-chart-block {
+    width: 258px;
+    height: 263px;
+  }
 }
