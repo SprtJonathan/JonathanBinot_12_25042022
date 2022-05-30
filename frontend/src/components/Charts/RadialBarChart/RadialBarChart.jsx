@@ -11,14 +11,14 @@ import "./RadialBarChart.css";
 
 /**
  * Returns React Component that displays a radial bar chart
- * @param { Number } score
+ * @param { Number } score The user objective score
  * @return  A React component
  */
-
 function renderRadialBarChart(props) {
   const score = props.score;
   const scoreValue = score * 100;
 
+  // Object used for the chart
   const data = [
     {
       score: scoreValue,
@@ -36,7 +36,7 @@ function renderRadialBarChart(props) {
           objectif
         </p>
       </div>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer>
         <RadialBarChart
           innerRadius="70%"
           data={data}
@@ -57,6 +57,7 @@ function renderRadialBarChart(props) {
     </div>
   );
 }
+// Use of propTypes to detail every props used in the component
 renderRadialBarChart.propTypes = {
   score: PropTypes.number,
 };

@@ -1,6 +1,5 @@
 /* Importing the css file and the images. */
 import "./Aside.css";
-import Logo from "../../assets/img/logo.png";
 import Yoga from "../../assets/img/yoga.svg";
 import Swim from "../../assets/img/swim.svg";
 import Bike from "../../assets/img/bike.svg";
@@ -15,7 +14,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-content">
-        <img className="website-logo" src={Logo} alt="" />
+        <div className="filled-block"></div>
         <ul className="sport-section">
           {sportArray.map((array, keyValue) => (
             <a key={keyValue} href="/" className="sport-li">

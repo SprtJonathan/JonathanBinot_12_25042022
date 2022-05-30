@@ -1,4 +1,4 @@
-/* It creates a class called UserMainData. */
+/* It creates a class called UserMainData for use as a model for the API call. */
 class UserMainData {
   constructor(userId, userInfos, todayScore, keyData) {
     this.userId = userId;

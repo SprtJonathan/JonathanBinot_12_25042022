@@ -3,15 +3,13 @@ import "./Card.css";
 
 /**
  * Returns a react component that displays a card with data
-//  * @param {string} props.icon
-//  * @param {string} props.color
-//  * @param {number} props.data
-//  * @param {string} props.unit
-//  * @param {string} props.type
- * @param {Object} props An Object that contains multiple elements
- * @returns A React component
+ * @param {string} icon The icon of the card
+ * @param {string} color The color of the card icon block
+ * @param {number} data The data contained in the card
+ * @param {string} unit The abbreviation of the unit
+ * @param {string} type The name of the unit
+ * @returns A card React component
  */
-
 function Card(props) {
   const icon = props.icon;
   const color = props.color;
@@ -40,7 +38,7 @@ function Card(props) {
   );
 }
 
-/* A way to check the props that are passed to the component. */
+// Use of propTypes to detail every props used in the component
 Card.propTypes = {
   icon: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,

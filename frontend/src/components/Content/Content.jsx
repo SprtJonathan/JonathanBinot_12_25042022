@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 
 import UserSummary from "../../components/UserSummary/UserSummary"; // Component that displays the user name and summary
 
-import BarChart from "../../components/Charts/BarChart"; // Displays a bar chart with data values passed as props
-import LineChart from "../../components/Charts/LineChart"; // Displays a line chart with data values passed as props
-import RadarChart from "../../components/Charts/RadarChart"; // Displays a radar chart with data values passed as props
-import RadialBarChart from "../Charts/RadialBarChart"; // Displays circle progress bar with the percentage value passed as prop
+import BarChart from "../../components/Charts/BarChart/BarChart"; // Displays a bar chart with data values passed as props
+import LineChart from "../../components/Charts/LineChart/LineChart"; // Displays a line chart with data values passed as props
+import RadarChart from "../../components/Charts/RadarChart/RadarChart"; // Displays a radar chart with data values passed as props
+import RadialBarChart from "../Charts/RadialBarChart/RadialBarChart"; // Displays circle progress bar with the percentage value passed as prop
 import Card from "../../components/Card/Card"; // The Card component used to create the cards showing user stats
 
 import "./Content.css"; // Profile page style
@@ -16,24 +16,21 @@ import glucIcon from "../../assets/img/units/glucids.svg"; // Glucids Icon
 import lipIcon from "../../assets/img/units/lipids.svg"; // Lipids Icon
 
 /**
- * Returns React Component that displays the content of the profile page
-//  * @param { Object } userData
-//  * @param { Object } userActivity
-//  * @param { Object } userAvgSessions
-//  * @param { Object } userPerformances
- * @param { Object } props An array of objects
+ * Returns React Component that displays the content of the profile page with every charts
+ * @param { Object } userData The user data fetched by from the API (wih the route endpoint "/")
+ * @param { Object } userActivity The user activity fetched by from the API (wih the route endpoint "/activity") 
+ * @param { Object } userAvgSessions The user average sessions stats fetched by from the API (wih the route endpoint "/average-sessions")
+ * @param { Object } userPerformances The user performance fetched by from the API (wih the route endpoint "/performance")
  * @return  A React component
  */
 function displayContent(props) {
-  let userData = props.userData; // The commented code is for the mocked data
+  let userData = props.userData;
   let userActivity = props.userActivity;
   let userAvgSessions = props.userAvgSessions;
   let userPerformances = props.userPerformances;
 
-  //console.log(props)
-
   return (
-    <div>
+    <div className="content">
       <UserSummary userData={userData.userInfos.firstName} />
       <section className="stats">
         <div className="charts-section">
@@ -89,6 +86,7 @@ function displayContent(props) {
   );
 }
 
+// Use of propTypes to detail every props used in the component
 displayContent.propTypes = {
   userData: PropTypes.object.isRequired,
   userActivity: PropTypes.object.isRequired,

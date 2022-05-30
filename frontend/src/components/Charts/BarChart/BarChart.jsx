@@ -16,16 +16,16 @@ import "./BarChart.css";
 
 /**
  * Returns React Component that displays a bar chart
- * @param { Object } props An object that contains an array of objects
+ * @param {string} day The day of measurement
+ * @param {number} kilogram The mass of the user
+ * @param {number} calories The amount of calories burnt by the user
  * @return  A React component
  */
-
 function renderBarChart(props) {
   const data = props.data;
-  const userData = [];
+  const userData = []; // Array used to format the data to then use it in the chart
 
   // In this loop, we push the data taken from the prop into the newly created array to better match the data of the mockup
-  /* Creating a new array with the data from the prop. */
   for (let i = 0; i < data.length; i++) {
     userData.push({
       index: i + 1,
@@ -33,7 +33,7 @@ function renderBarChart(props) {
       calories: data[i].calories,
     });
   }
-  /* Getting the min and max values of the data to set the domain of the Y axis. */
+  // Getting the min and max values of the data to set the domain of the Y axis.
   const kgArray = data.map((kilogram) => kilogram.kilogram);
   const minKg = Math.min(...kgArray);
   const maxKg = Math.max(...kgArray);
@@ -42,8 +42,9 @@ function renderBarChart(props) {
   const minCal = Math.min(...calArray);
   const maxCal = Math.max(...calArray);
   /**
-   * It returns a span element with the value passed to it.
-   * @returns A function that returns a span element with the value passed in.
+   * It returns a span element with a value passed to it. Used for the chart's legend
+   * @param {string} value The units of each data type
+   * @returns A span element
    */
   const legendValue = (value) => {
     return (
@@ -136,6 +137,7 @@ function renderBarChart(props) {
     </ResponsiveContainer>
   );
 }
+// Use of propTypes to detail every props used in the component
 renderBarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({

@@ -11,9 +11,8 @@ import "./RadarChart.css";
 
 /**
  * Returns React Component that displays a radar chart
-//  * @param { array } props.performances.data
-//  * @param { object } props.performances.kind
- * @param { Object } props An object that contains an array of objects
+ * @param { array } data An array of objects that contains two keys : value and kind. Their values are numbers
+ * @param { object } kind An object that contains strings which are the titles of the kinds
  * @return  A React component
  */
 function renderRadarChart(props) {
@@ -56,6 +55,7 @@ function renderRadarChart(props) {
     </ResponsiveContainer>
   );
 }
+// Use of propTypes to detail every props used in the component
 renderRadarChart.propTypes = {
   performances: PropTypes.shape({
     data: PropTypes.array,
