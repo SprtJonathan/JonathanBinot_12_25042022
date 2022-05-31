@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 90%;
+  height: 85%;
   margin: auto;
 
   padding: 1rem 2rem;
@@ -41,7 +41,7 @@
   border-radius: 6px;
   width: 64px;
   height: 64px;
-  margin: 20px;
+  margin: 10px;
 }
 
 .upwards-text {
