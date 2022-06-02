@@ -1,0 +1,27 @@
+.radar-chart {
+  top: 0;
+}
+
+.radar-chart-block {
+  background: #282d30;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+}
+
+.axis-title {
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 24px;
+  /* identical to box height, or 200% */
+
+  text-align: right;
+
+  color: #ffffff;
+}
+
+@media (min-width: 1440px) {
+  .axis-title {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}

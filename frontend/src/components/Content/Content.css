@@ -1,0 +1,69 @@
+.greet-text {
+  font-weight: 500;
+  font-size: 48px;
+}
+
+.username {
+  color: red;
+}
+
+.status {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.charts-section {
+  display: flex;
+  flex-direction: column;
+}
+.big-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  margin: 14px;
+  width: 550px;
+  height: 241px;
+}
+
+.small-charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.small-chart-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 14px;
+  width: 160px;
+  height: 165px;
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media (min-width: 1440px) {
+  .big-chart {
+    width: 835px;
+    height: 320px;
+  }
+  .small-chart-block {
+    width: 258px;
+    height: 263px;
+  }
+}

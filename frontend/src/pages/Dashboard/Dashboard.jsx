@@ -1,69 +1,77 @@
-import "./Dashboard.css"; // Profile page style
-import mock from "../../assets/mock.json"; // This JSON file mocks a user profile
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-import Card from "../../components/Card/Card";
+/* Importing the functions that call the API from the service.js file. */
+import fetchData from "../../api/services/service";
 
-import calIcon from "../../assets/img/units/calories.svg";
-import protIcon from "../../assets/img/units/proteins.svg";
-import glucIcon from "../../assets/img/units/glucids.svg";
-import lipIcon from "../../assets/img/units/lipids.svg";
+import Error from "../../components/Error/Error";
+import Content from "../../components/Content/Content";
 
-function Dashboard() {
-  let mockedUser = mock[0].user; // This has to be taken from the api via the /user/:id route
+import mock from "../../assets/mock"; // This JSON file mocks a user profile
 
+/* The above code is a React component that is used to fetch data from an API. The data is then passed
+to the Content component. */
+/**
+ * Returns a React component that displays an error message if the user ID is invalid
+ * @param {string} id The user ID
+ * @returns A React component.
+ */
+function Dashboard(props) {
+  const userId = props.id;
+
+  /* Setting the state of the component. */
+  const [userFetchedData, setUserFetchedData] = useState(null);
+  const [userFetchedActivity, setUserFetchedActivity] = useState(null);
+  const [userFetchedAvgSessions, setUserFetchedAvgSessions] = useState(null);
+  const [userFetchedPerformance, setUserFetchedPerformance] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  /* A boolean that is used to switch between the mocked data and the real data. */
+  const useMockedData = false;
+
+  /* A React hook that is used to fetch data from an API. The data is then passed to the Content
+  component. */
+  useEffect(() => {
+    if (useMockedData) {
+      setUserFetchedData(mock.USER_MAIN_DATA[0]); // The commented code is for the mocked data
+      setUserFetchedActivity(mock.USER_ACTIVITY[0]);
+      setUserFetchedAvgSessions(mock.USER_AVERAGE_SESSIONS[0]);
+      setUserFetchedPerformance(mock.USER_PERFORMANCE[0]);
+      setIsLoaded(true);
+    } else {
+      async function fetchApi() {
+        setUserFetchedData(await fetchData(userId, ""));
+        setUserFetchedActivity(await fetchData(userId, "activity"));
+        setUserFetchedAvgSessions(await fetchData(userId, "average-sessions"));
+        setUserFetchedPerformance(await fetchData(userId, "performance"));
+        setIsLoaded(true);
+      }
+      fetchApi();
+    }
+  }, [
+    setUserFetchedData,
+    setUserFetchedActivity,
+    setUserFetchedAvgSessions,
+    setUserFetchedPerformance,
+    userId,
+    useMockedData,
+  ]);
   return (
-    <div>
-      <section>
-        <h1 className="greet-text">
-          Bonjour{" "}
-          <span className="username">{mockedUser.userInfos.firstName}</span>
-        </h1>
-        <p className="status">
-          Félicitations ! Vous avez explosé vos objectifs hier 👏
-        </p>
-      </section>
-      <section className="stats">
-        <div className="charts-section">
-          <div className="big-chart">Big Bar Chart</div>
-          <div className="small-charts">
-            <div className="small-chart-block">Small Chart 1</div>
-            <div className="small-chart-block">Radar Chart 2</div>
-            <div className="small-chart-block">Round Chart 3</div>
-          </div>
-        </div>
-        <div className="cards-section">
-          <Card
-            icon={calIcon}
-            color="255, 0, 0"
-            data={mockedUser.keyData.calorieCount}
-            unit="kCal"
-            type="Calories"
-          />
-          <Card
-            icon={protIcon}
-            color="74, 184, 255"
-            data={mockedUser.keyData.proteinCount}
-            unit="g"
-            type="Proteines"
-          />
-          <Card
-            icon={glucIcon}
-            color="249, 206, 35"
-            data={mockedUser.keyData.carbohydrateCount}
-            unit="g"
-            type="Glucides"
-          />
-          <Card
-            icon={lipIcon}
-            color="253, 81, 129"
-            data={mockedUser.keyData.lipidCount}
-            unit="g"
-            type="Lipides"
-          />
-        </div>
-      </section>
-    </div>
+    // If the states are updated then isLoaded is true. Otherwise displays the error component
+    isLoaded ? (
+      <Content
+        userData={userFetchedData}
+        userActivity={userFetchedActivity}
+        userAvgSessions={userFetchedAvgSessions}
+        userPerformances={userFetchedPerformance}
+      />
+    ) : (
+      <Error />
+    )
   );
 }
+// Use of propTypes to detail every props used in the component
+Dashboard.propTypes = {
+  id: PropTypes.string,
+};
 
 export default Dashboard;
