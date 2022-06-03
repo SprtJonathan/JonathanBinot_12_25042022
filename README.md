@@ -14,6 +14,8 @@ Develop an analytics dashboard with React
 
 - prop-types v15.8.1
 
+- jsdoc v3.6.10
+
 ## Installation instructions
 
 In order to run this project, please follow the steps below.
